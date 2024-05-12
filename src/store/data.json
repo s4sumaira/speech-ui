@@ -1,0 +1,17 @@
+{
+  "default": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  },
+  "fo2e9": {
+    "headerColor": "black",
+    "bodyColor": "orange",
+    "footerColor": "black"
+  },
+  "ui54e": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  }
+}
