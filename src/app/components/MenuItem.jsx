@@ -21,7 +21,7 @@ export const MenuItem = ({
                 });
                 
                 ref.current.querySelector('a').href = urlWithQueryString.href;
-                console.log(urlWithQueryString.href)
+                //console.log(urlWithQueryString.href)
             }
         };
 
@@ -47,7 +47,7 @@ export const MenuItem = ({
 
     return (
         <li
-            className="menu-items hover:bg-gray-700"
+            className="menu-items  hover:bg-gray-700"
             ref={ref}
 
         >

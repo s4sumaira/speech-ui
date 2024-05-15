@@ -2,7 +2,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import {
   bodyColorKeywords, headerColorKeywords, bodyFontFamilyKeywords,
-  footerColorKeywords, persistChangesKeywords, createVariationKeywords
+  footerColorKeywords, persistChangesKeywords, createVariationKeywords,
+  headerFontColorKeywords
 } from "@/app/components/Keywords";
 import data from '@/store/data.json'
 import { persistChanges, getRecord } from '@/app/actions/serverActions'
@@ -15,6 +16,7 @@ export const TextProvider = ({ children }) => {
 
   const [bodyColor, setBodyColor] = useState("");
   const [headerColor, setHeaderColor] = useState("");
+  const [headerFontColor, setHeaderFontColor] = useState("");
   const [footerColor, setFooterColor] = useState("");
   const [bodyFontFamily, setBodyFontFamily] = useState("arial")
 
@@ -51,12 +53,16 @@ export const TextProvider = ({ children }) => {
             if (record) {
               setBodyColor(record.bodyColor)
               setHeaderColor(record.headerColor)
+              setHeaderFontColor(record.headerFontColor)
               setFooterColor(record.footerColor)
+              setBodyFontFamily(record.bodyFontFamily)
             } else {
 
               setBodyColor(data.default.bodyColor)
               setHeaderColor(data.default.headerColor)
+              setHeaderFontColor(data.default.headerFontColor)
               setFooterColor(data.default.footerColor)
+              setBodyFontFamily(data.default.bodyFontFamily)
             }
 
           } catch (error) {
@@ -66,7 +72,9 @@ export const TextProvider = ({ children }) => {
 
           setBodyColor(data.default.bodyColor)
           setHeaderColor(data.default.headerColor)
+          setHeaderFontColor(data.default.headerFontColor)
           setFooterColor(data.default.footerColor)
+          setBodyFontFamily(data.default.bodyFontFamily)
 
         }
       }
@@ -104,6 +112,16 @@ export const TextProvider = ({ children }) => {
 
       };
 
+      if (headerFontColorKeywords.some(headerFontColorKeywords => text.toLowerCase().includes(headerFontColorKeywords))) {
+        {
+          const color = getValue(text)
+          if (color) {
+            setHeaderFontColor(color)
+          }
+        }
+
+      };
+
       if (footerColorKeywords.some(footerColorKeywords => text.toLowerCase().includes(footerColorKeywords))) {
         {
           const color = getValue(text)
@@ -130,7 +148,9 @@ export const TextProvider = ({ children }) => {
         let newData = {
           headerColor: headerColor,
           bodyColor: bodyColor,
-          footerColor: footerColor
+          footerColor: footerColor,
+          bodyFontFamily:bodyFontFamily,
+          headerFontColor:headerFontColor
         }
 
         const res = persistChanges("default", newData)
@@ -146,24 +166,33 @@ export const TextProvider = ({ children }) => {
         let newData = {
           headerColor: headerColor,
           bodyColor: bodyColor,
-          footerColor: footerColor
+          footerColor: footerColor,
+          bodyFontFamily:bodyFontFamily,
+          headerFontColor:headerFontColor
         }
 
         let r = (Math.random() + 1).toString(36).substring(7);
 
         const res = persistChanges(r, newData)
-
+        
         if (res) {
 
-          const currentUrl = window.location.origin + window.location.pathname
-          const url = currentUrl + '?vid='+r;
-
-          // Open the URL in a new window
-          open(url).then(() => {
-            console.log('URL opened in a new window');
-          }).catch(err => {
-            console.error('Error opening URL:', err);
-          });
+          const currentUrl = window.location.origin + window.location.pathname;
+          const url = currentUrl + '?vid=' + r;
+          
+          // Attach an event listener to an element that the user can click
+          //document.getElementById('yourButtonId').addEventListener('click', function() {
+          // Open the URL in a new tab
+          const newWindow = window.open(url, '_blank');
+          
+          if (newWindow) {
+          // Focus on the new tab
+          newWindow.focus();
+          } else {
+          // Log an error if the window didn't open
+          console.error('Error opening URL');
+          }
+          //});
 
         }
 
@@ -180,7 +209,7 @@ export const TextProvider = ({ children }) => {
 
 
   return (
-    <TextContext.Provider value={{ text, setText, bodyColor, headerColor, footerColor, bodyFontFamily }}>
+    <TextContext.Provider value={{ text, setText, bodyColor, headerColor, footerColor, bodyFontFamily, headerFontColor }}>
       {children}
     </TextContext.Provider>
   );
@@ -188,7 +217,7 @@ export const TextProvider = ({ children }) => {
 
 export const useText = () => {
 
-  const { text, setText, bodyColor, headerColor, footerColor, bodyFontFamily } = useContext(TextContext);
-  return { text, setText, bodyColor, headerColor, footerColor, bodyFontFamily };
+  const { text, setText, bodyColor, headerColor, footerColor, bodyFontFamily, headerFontColor } = useContext(TextContext);
+  return { text, setText, bodyColor, headerColor, footerColor, bodyFontFamily, headerFontColor };
 
 };

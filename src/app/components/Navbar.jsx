@@ -85,7 +85,7 @@ export const Navbar = () => {
     return (
         <>
             <nav className="">
-                <ul className="menus text-white">
+                <ul className="menus ">
                     {menuRecords && menuRecords.map((item) => {
                         const depthLevel = 0;
                         return <MenuItem

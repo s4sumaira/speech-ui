@@ -2,16 +2,55 @@
   "default": {
     "headerColor": "black",
     "bodyColor": "pink",
-    "footerColor": "black"
+    "footerColor": "black",
+    "headerFontColor": "white",
+    "bodyFontFamily": "Arial"
   },
-  "fo2e9": {
-    "headerColor": "black",
-    "bodyColor": "orange",
-    "footerColor": "black"
-  },
-  "ui54e": {
+  "vdacb": {
     "headerColor": "black",
     "bodyColor": "pink",
     "footerColor": "black"
+  },
+  "38sv": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  },
+  "0iwc7": {
+    "headerColor": "lightyellow",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  },
+  "0mp4q": {
+    "headerColor": "yellow",
+    "bodyColor": "green",
+    "footerColor": "black"
+  },
+  "1uxs1": {
+    "headerColor": "yellow",
+    "bodyColor": "green",
+    "footerColor": "black"
+  },
+  "zgy4t": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  },
+  "4ob3r": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  },
+  "5xplg": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black"
+  },
+  "sbmqek": {
+    "headerColor": "black",
+    "bodyColor": "pink",
+    "footerColor": "black",
+    "bodyFontFamily": "Arial",
+    "headerFontColor": "green"
   }
 }

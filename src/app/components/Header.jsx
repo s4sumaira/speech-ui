@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useText } from "@/hooks/useText";
 
 export const Header = () => {
-    const { text, headerColor } = useText();
+    const { text, headerColor, headerFontColor } = useText();
     const sectionRef = useRef(null);
 
    useEffect(() => {
@@ -67,7 +67,7 @@ export const Header = () => {
 
     return (
 
-        <header className="bg-gray-800 text-white pt-2 pb-2" style={{backgroundColor: headerColor }}>
+        <header className="bg-gray-800  pt-2 pb-2" style={{backgroundColor: headerColor, color:headerFontColor }}>
             <div className="container   pl-2 pr-2 md:pl-[3.4rem]">
               <Navbar></Navbar>
             </div>
