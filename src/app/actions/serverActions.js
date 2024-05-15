@@ -6,8 +6,8 @@ import path from "path";
 export const persistChanges = (key,newData) => {
   console.log(newData);
 
-  //const dataFilePath = path.join(process.cwd(), '/src/store/data.json');
-  const dataFilePath = path.join(__dirname, 'src', 'store', 'data.json');
+  const dataFilePath = path.join(process.cwd(), '/src/store/data.json');
+  
 
   console.log("dataFilePath:::",dataFilePath)
   
@@ -28,8 +28,8 @@ export const persistChanges = (key,newData) => {
         return true
     });
 
-  //const filePath = path.resolve( "./src/store/data.json");
-  //fs.writeFileSync(filePath, JSON.stringify(newData, null, 2));
+  const filePath = path.resolve( "./src/store/data.json");
+  
 
 
   return false
